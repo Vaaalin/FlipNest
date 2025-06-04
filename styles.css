@@ -1,0 +1,590 @@
+/* Global Styles */
+:root {
+    --primary-color: #c1a98e; /* Lighter Warm Taupe (matching modern.css) */
+    --secondary-color: #e6c9a8; /* Soft Amber (matching modern.css) */
+    --dark-color: #8a7e74; /* Medium Warm Gray (matching modern.css) */
+    --light-color: #faf7f4; /* Warm Off-White (matching modern.css) */
+    --success-color: #c6d6c0; /* Light Sage (matching modern.css) */
+    --danger-color: #f0d0d0; /* Light Rose (matching modern.css) */
+    --box-shadow: 0 4px 8px rgba(193, 169, 142, 0.07); /* Warm shadow */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #d5c4b3; /* Lighter version of primary */
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.btn-secondary:hover {
+    background-color: #f0dcc3; /* Lighter version of secondary */
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--dark-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--primary-color);
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.search-bar form {
+    display: flex;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(193, 169, 142, 0.3), rgba(193, 169, 142, 0.3)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--dark-color);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+    margin: 0 10px;
+}
+
+/* Categories Section */
+.categories {
+    padding: 80px 0;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    padding: 15px 0;
+    font-size: 20px;
+}
+
+.category-card .btn {
+    margin-bottom: 15px;
+}
+
+/* Featured Products */
+.featured-products {
+    padding: 80px 0;
+    background-color: #f0f3f8;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    height: 220px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.product-details {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.product-seller {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.product-location i,
+.product-date i {
+    margin-right: 5px;
+}
+
+.product-actions {
+    display: flex;
+    margin-top: 15px;
+}
+
+.product-actions .btn {
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.product-actions .btn:last-child {
+    margin-right: 0;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* How It Works */
+.how-it-works {
+    padding: 80px 0;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.step {
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.step-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 80px 0;
+    background-color: #f0f3f8;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+}
+
+.testimonial {
+    min-width: 350px;
+    flex: 0 0 calc(50% - 15px);
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    scroll-snap-align: start;
+}
+
+.testimonial-content {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.author-info h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* User Profile Dropdown */
+.user-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-profile a {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #faf7f4; /* Warm off-white background */
+    box-shadow: 0 4px 8px rgba(193, 169, 142, 0.1); /* Warm shadow */
+    border: 1px solid rgba(193, 169, 142, 0.2); /* Light warm border */
+    border-radius: 5px;
+    width: 200px;
+    z-index: 100;
+    padding: 5px 0;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu ul {
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.dropdown-menu ul li {
+    margin: 0;
+    list-style: none;
+}
+
+.dropdown-menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #8a7e74; /* Medium warm gray */
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: rgba(193, 169, 142, 0.1); /* Very light warm hover */
+    color: #c1a98e; /* Primary warm taupe */
+}
+
+/* Footer */
+footer {
+    background-color: #f0e6db; /* Light warm beige background */
+    color: var(--dark-color);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.footer-section p {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #d5c4b3; /* Lighter version of primary */
+}
+
+.footer-section.links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.links ul li a {
+    color: var(--dark-color);
+    transition: color 0.3s ease;
+}
+
+.footer-section.links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-section.contact p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(193, 169, 142, 0.2); /* Very light warm border */
+    color: var(--dark-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .search-bar {
+        margin: 15px 0;
+        max-width: 100%;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero-content h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero-content h2 {
+        font-size: 30px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .testimonial {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-buttons .btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}

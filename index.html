@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipNest - Buy and Sell Second-Hand Items</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">FlipNest</a></h1>
+            </div>
+            <div class="search-bar">
+                <form action="search.html" method="get">
+                    <input type="text" name="query" placeholder="Search for items...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="login.html" id="login-btn">Login</a></li>
+                    <li><a href="register.html" id="register-btn">Register</a></li>
+                    <li class="user-profile hidden"><a href="profile.html"><i class="fas fa-user"></i> <span id="username">Profile</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Buy and Sell Second-Hand Items</h2>
+                <p>Find great deals on used items or sell your unused stuff!</p>
+                <div class="hero-buttons">
+                    <a href="browse.html" class="btn btn-primary">Browse Items</a>
+                    <a href="sell.html" class="btn btn-secondary">Start Selling</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Browse Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="images/electronics.jpg" alt="Electronics" onerror="this.src='https://via.placeholder.com/300x180?text=Electronics'">
+                    <h3>Electronics</h3>
+                    <a href="categories.html?category=electronics" class="btn btn-small">Browse</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/furniture.jpg" alt="Furniture" onerror="this.src='https://via.placeholder.com/300x180?text=Furniture'">
+                    <h3>Furniture</h3>
+                    <a href="categories.html?category=furniture" class="btn btn-small">Browse</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/clothing.jpg" alt="Clothing" onerror="this.src='https://via.placeholder.com/300x180?text=Clothing'">
+                    <h3>Clothing</h3>
+                    <a href="categories.html?category=clothing" class="btn btn-small">Browse</a>
+                </div>
+                <div class="category-card">
+                    <img src="images/books.jpg" alt="Books" onerror="this.src='https://via.placeholder.com/300x180?text=Books'">
+                    <h3>Books</h3>
+                    <a href="categories.html?category=books" class="btn btn-small">Browse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Items</h2>
+            <div class="product-grid" id="featured-products">
+                <!-- Products will be loaded dynamically with JavaScript -->
+                <div class="loading">Loading products...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Create an Account</h3>
+                    <p>Sign up for free and join our community of buyers and sellers.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>List Your Items</h3>
+                    <p>Take photos, set prices, and create listings for your unused items.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Connect with Buyers</h3>
+                    <p>Communicate with interested buyers through our messaging system.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Get Paid</h3>
+                    <p>Complete the sale and receive payment securely through our platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I sold my old laptop in just 2 days! The process was so easy and the buyer was great."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/user1.jpg" alt="User" onerror="this.src='https://via.placeholder.com/50x50?text=User'">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Seller</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Found a barely used coffee machine for half the retail price. Excellent condition and fast shipping!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/user2.jpg" alt="User" onerror="this.src='https://via.placeholder.com/50x50?text=User'">
+                        <div class="author-info">
+                            <h4>Michael Brown</h4>
+                            <p>Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About FlipNest</h3>
+                    <p>FlipNest is a platform for buying and selling second-hand items. Our mission is to promote sustainability by giving items a second life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@flipnest.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FlipNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

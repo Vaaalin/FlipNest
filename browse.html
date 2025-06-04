@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - FlipNest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="browse.css">
+    <link rel="stylesheet" href="modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">FlipNest</a></h1>
+            </div>
+            <div class="search-bar">
+                <form action="browse.html" method="get">
+                    <input type="text" name="query" id="search-input" placeholder="Search for items...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="browse.html" class="active">Browse</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count" class="cart-count">0</span></a></li>
+                    <li><a href="login.html" id="login-btn">Login</a></li>
+                    <li><a href="register.html" id="register-btn">Register</a></li>
+                    <li class="user-profile hidden"><a href="profile.html"><i class="fas fa-user"></i> <span id="username">Profile</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Browse Section -->
+    <section class="browse-section">
+        <div class="container">
+            <div class="browse-container">
+                <div class="browse-header">
+                    <h2>Browse Items</h2>
+                    <p>Find great deals on second-hand items from our community of sellers.</p>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="books">Books</option>
+                            <option value="home-garden">Home & Garden</option>
+                            <option value="toys">Toys & Games</option>
+                            <option value="sports">Sports & Outdoors</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range</label>
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="Min $" min="0">
+                            <input type="number" id="max-price" placeholder="Max $" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="condition-filter">Condition</label>
+                        <select id="condition-filter">
+                            <option value="all">All Conditions</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Poor">Poor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort-filter">Sort By</label>
+                        <select id="sort-filter">
+                            <option value="newest">Newest First</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="product-container">
+                    <!-- Products will be loaded here dynamically -->
+                </div>
+                
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About FlipNest</h3>
+                    <p>FlipNest is a platform for buying and selling second-hand items. Our mission is to promote sustainability by giving items a second life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@flipnest.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FlipNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="browse.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+/* Authentication Pages Styles */
+
+.auth-section {
+    padding: 80px 0;
+    background-color: #f0f3f8;
+    min-height: calc(100vh - 400px);
+    display: flex;
+    align-items: center;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 40px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.auth-header p {
+    color: #666;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+}
+
+.auth-divider span {
+    position: relative;
+    background-color: white;
+    padding: 0 15px;
+    color: #666;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+}
+
+.social-login-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.google-btn {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.google-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.facebook-btn {
+    background-color: #3b5998;
+    color: white;
+    border: 1px solid #3b5998;
+}
+
+.facebook-btn:hover {
+    background-color: #344e86;
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+    
+    .auth-header h2 {
+        font-size: 24px;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+    
+    .social-login-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

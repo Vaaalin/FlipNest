@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell an Item - FlipNest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .sell-section {
+            padding: 60px 0;
+            background-color: #f0f3f8;
+        }
+        
+        .sell-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+        }
+        
+        .sell-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .sell-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .sell-header p {
+            color: #666;
+        }
+        
+        .sell-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .sell-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .sell-form input, .sell-form select, .sell-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .sell-form input:focus, .sell-form select:focus, .sell-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .sell-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .image-upload {
+            border: 2px dashed #ddd;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .image-upload:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .image-upload i {
+            font-size: 40px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .image-upload p {
+            color: #666;
+        }
+        
+        .image-upload input {
+            display: none;
+        }
+        
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .preview-item .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 12px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">FlipNest</a></h1>
+            </div>
+            <div class="search-bar">
+                <form action="search.html" method="get">
+                    <input type="text" name="query" placeholder="Search for items...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="sell.html" class="active">Sell</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="login.html" id="login-btn">Login</a></li>
+                    <li><a href="register.html" id="register-btn">Register</a></li>
+                    <li class="user-profile hidden"><a href="profile.html"><i class="fas fa-user"></i> <span id="username">Profile</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sell Item Section -->
+    <section class="sell-section">
+        <div class="container">
+            <div class="sell-container">
+                <div class="sell-header">
+                    <h2>Sell Your Item</h2>
+                    <p>Fill out the form below to list your item for sale.</p>
+                </div>
+                <form id="sell-form" class="sell-form">
+                    <div class="form-group">
+                        <label for="title">Item Title*</label>
+                        <input type="text" id="title" name="title" required placeholder="e.g., Apple MacBook Pro 2020">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category*</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="books">Books</option>
+                                <option value="home-garden">Home & Garden</option>
+                                <option value="toys">Toys & Games</option>
+                                <option value="sports">Sports & Outdoors</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Condition*</label>
+                            <select id="condition" name="condition" required>
+                                <option value="" disabled selected>Select condition</option>
+                                <option value="New">New</option>
+                                <option value="Like New">Like New</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                                <option value="Poor">Poor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description*</label>
+                        <textarea id="description" name="description" required placeholder="Describe your item in detail. Include features, specifications, any defects or wear, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="price">Price ($)*</label>
+                            <input type="number" id="price" name="price" min="0.01" step="0.01" required placeholder="e.g., 99.99">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location*</label>
+                            <input type="text" id="location" name="location" required placeholder="e.g., New York, NY">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Photos (Up to 5)*</label>
+                        <div class="image-upload" id="image-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag and drop images here or click to browse</p>
+                            <p class="small">Recommended size: at least 800x600px</p>
+                            <input type="file" id="item-images" name="images" accept="image/*" multiple>
+                        </div>
+                        <div class="image-preview" id="image-preview"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-preference">Contact Preference</label>
+                        <select id="contact-preference" name="contactPreference">
+                            <option value="app-messaging">App Messaging (Default)</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">List Item for Sale</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About FlipNest</h3>
+                    <p>FlipNest is a platform for buying and selling second-hand items. Our mission is to promote sustainability by giving items a second life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@flipnest.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FlipNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if user is logged in
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.href);
+            }
+            
+            // Image upload functionality
+            const imageUploadArea = document.getElementById('image-upload-area');
+            const imageInput = document.getElementById('item-images');
+            const imagePreview = document.getElementById('image-preview');
+            
+            // Click on upload area to trigger file input
+            imageUploadArea.addEventListener('click', () => {
+                imageInput.click();
+            });
+            
+            // Handle drag and drop
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                imageUploadArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                imageUploadArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                imageUploadArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                imageUploadArea.classList.add('highlight');
+            }
+            
+            function unhighlight() {
+                imageUploadArea.classList.remove('highlight');
+            }
+            
+            // Handle file drop
+            imageUploadArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }
+            
+            // Handle file selection
+            imageInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+            
+            function handleFiles(files) {
+                // Limit to 5 images
+                const maxFiles = 5;
+                const totalFiles = imagePreview.querySelectorAll('.preview-item').length + files.length;
+                
+                if (totalFiles > maxFiles) {
+                    alert(`You can upload a maximum of ${maxFiles} images.`);
+                    return;
+                }
+                
+                [...files].forEach(previewFile);
+            }
+            
+            function previewFile(file) {
+                if (!file.type.match('image.*')) {
+                    alert('Only image files are allowed.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const previewItem = document.createElement('div');
+                    previewItem.className = 'preview-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    
+                    const removeBtn = document.createElement('div');
+                    removeBtn.className = 'remove-image';
+                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    removeBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        previewItem.remove();
+                    });
+                    
+                    previewItem.appendChild(img);
+                    previewItem.appendChild(removeBtn);
+                    imagePreview.appendChild(previewItem);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+            
+            // Form submission
+            const sellForm = document.getElementById('sell-form');
+            
+            sellForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                const title = document.getElementById('title').value;
+                const category = document.getElementById('category').value;
+                const condition = document.getElementById('condition').value;
+                const description = document.getElementById('description').value;
+                const price = document.getElementById('price').value;
+                const location = document.getElementById('location').value;
+                
+                if (!title || !category || !condition || !description || !price || !location) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                if (imagePreview.querySelectorAll('.preview-item').length === 0) {
+                    alert('Please upload at least one image.');
+                    return;
+                }
+                
+                // Get existing products or initialize empty array
+                let products = JSON.parse(localStorage.getItem('products')) || [];
+                
+                // Create new product
+                const newProduct = {
+                    id: products.length + 1,
+                    title: title,
+                    description: description,
+                    price: parseFloat(price),
+                    seller: user.firstName + ' ' + user.lastName,
+                    location: location,
+                    date: new Date().toISOString().split('T')[0],
+                    category: category,
+                    condition: condition,
+                    // In a real app, images would be uploaded to a server and URLs stored
+                    // For this demo, we'll just use a placeholder image
+                    image: 'https://via.placeholder.com/300x220?text=' + encodeURIComponent(title)
+                };
+                
+                // Add to products array
+                products.push(newProduct);
+                
+                // Save to localStorage
+                localStorage.setItem('products', JSON.stringify(products));
+                
+                // Show success message
+                alert('Your item has been listed successfully!');
+                
+                // Redirect to homepage
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
