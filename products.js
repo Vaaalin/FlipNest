@@ -6,72 +6,72 @@ const sampleProducts = [
         id: 1,
         title: "Apple MacBook Pro 2020",
         description: "Barely used MacBook Pro with M1 chip, 8GB RAM, 256GB SSD. In excellent condition.",
-        price: 899.99,
+        price: 89999,
         seller: "John Doe",
-        location: "New York, NY",
+        location: "Nairobi, NBO",
         date: "2025-05-20",
         category: "electronics",
-        image: "images/products/macbook.jpg",
+        image: "images/apple mackbook.jpg",
         condition: "Like New"
     },
     {
         id: 2,
         title: "Vintage Leather Sofa",
         description: "Beautiful vintage leather sofa in brown. Some wear but in good condition. Very comfortable.",
-        price: 350.00,
-        seller: "Sarah Johnson",
-        location: "Los Angeles, CA",
+        price: 35000,
+        seller: "Sarah Murigi",
+        location: "Mombasa, MSA",
         date: "2025-05-18",
         category: "furniture",
-        image: "images/products/sofa.jpg",
+        image: "images/vintagesofa.jpg",
         condition: "Good"
     },
     {
         id: 3,
         title: "Canon EOS 5D Mark IV",
         description: "Professional DSLR camera with 24-70mm lens. Low shutter count, includes carrying case.",
-        price: 1200.00,
-        seller: "Michael Brown",
-        location: "Chicago, IL",
+        price: 120000,
+        seller: "Mumtaaz Abdinur",
+        location: "Mandera",
         date: "2025-05-21",
         category: "electronics",
-        image: "images/products/camera.jpg",
+        image: "images/camera.jpg",
         condition: "Excellent"
     },
     {
         id: 4,
         title: "Designer Dress - Size M",
-        description: "Brand name designer dress, only worn once for a special occasion. Original price $300.",
-        price: 85.00,
-        seller: "Emily Wilson",
-        location: "Miami, FL",
+        description: "Brand name designer dress, only worn once for a special occasion. Original price 30000 ksh.",
+        price: 8500,
+        seller: "Stacy Wanjiku",
+        location: "Kisumu, KSM",
         date: "2025-05-19",
         category: "clothing",
-        image: "images/products/dress.jpg",
+        image: "images/dress.jpg",
         condition: "Like New"
     },
     {
         id: 5,
         title: "Harry Potter Complete Book Set",
         description: "All 7 Harry Potter books in hardcover. Some minor wear on the covers but pages are in perfect condition.",
-        price: 65.00,
-        seller: "David Miller",
-        location: "Austin, TX",
+        price: 6500,
+        seller: "Affan Abubakar",
+        location: "Nairobi, NBO",
         date: "2025-05-17",
         category: "books",
-        image: "images/products/books.jpg",
+        image: "images/books.jpg",
         condition: "Good"
     },
     {
         id: 6,
         title: "Dining Table with 4 Chairs",
         description: "Solid wood dining table set. Table is 60\" x 36\" and comes with 4 matching chairs.",
-        price: 220.00,
-        seller: "Jennifer Lee",
-        location: "Seattle, WA",
+        price: 22000,
+        seller: "Ralph Mwangi",
+        location: "Thika, THK",
         date: "2025-05-16",
         category: "furniture",
-        image: "images/products/dining-set.jpg",
+        image: "images/diningtable.jpg",
         condition: "Good"
     }
 ];
@@ -86,10 +86,10 @@ function loadFeaturedProducts() {
     featuredProductsContainer.innerHTML = '';
     
     // Display products
-    sampleProducts.forEach(product => {
-        const productCard = createProductCard(product);
-        featuredProductsContainer.appendChild(productCard);
-    });
+    for (const product of sampleProducts) {
+    const productCard = createProductCard(product);
+    featuredProductsContainer.appendChild(productCard);
+}
 }
 
 // Function to create a product card element
@@ -101,7 +101,7 @@ function createProductCard(product) {
     // Format price with commas and two decimal places
     const formattedPrice = product.price.toLocaleString('en-US', {
         style: 'currency',
-        currency: 'USD'
+        currency: 'KSH'
     });
     
     // Format date to be more readable
@@ -113,9 +113,11 @@ function createProductCard(product) {
     });
     
     productCard.innerHTML = `
+    
         <div class="product-image">
+         <div class="product-price">${formattedPrice}</div>
             <img src="${product.image}" alt="${product.title}" onerror="this.src='https://via.placeholder.com/300x220?text=Product+Image'">
-            <div class="product-price">${formattedPrice}</div>
+            
         </div>
         <div class="product-details">
             <h3 class="product-title">${product.title}</h3>
